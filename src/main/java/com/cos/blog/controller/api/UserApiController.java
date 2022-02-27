@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,13 +20,13 @@ public class UserApiController {
 	@Autowired
 	private UserService userService;
 	
+	
 //	@Autowired 이렇게 해도 되긴함!
 //	private HttpSession httpSession;
 	
 	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) { // username, password, email
 		System.out.println("UserApiController : save 호출됨");
-		user.setRole(RoleType.USER);
 		userService.save(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	
