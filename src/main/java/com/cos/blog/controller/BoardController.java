@@ -11,7 +11,15 @@ import com.cos.blog.config.auth.PrincipalDetail;
 public class BoardController {
 	
 	@GetMapping({"","/"})
-	public String index(@AuthenticationPrincipal PrincipalDetail principal) { // 컨트롤러에서 세션을 찾을 때
+//	public String index(@AuthenticationPrincipal PrincipalDetail principal) { // 컨트롤러에서 세션을 찾을 때
+	public String index() {
 		return "index";
 	}
+	
+	// user 권한이 필요 
+	@GetMapping("/board/saveForm")
+	public String saveForm() {
+		return "board/saveForm";
+	}
+	
 }
