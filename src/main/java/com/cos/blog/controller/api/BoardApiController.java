@@ -52,6 +52,7 @@ public class BoardApiController {
 
 	
 	
+	// 데이터 받을 때 컨트롤러에서 dto를 만들어서 받는게 좋다..!
 	@PostMapping("/api/board/{boardId}/reply")
 	public ResponseDto<Integer> replySave(@PathVariable int boardId ,@RequestBody Reply reply, @AuthenticationPrincipal PrincipalDetail principal) { 
 		
