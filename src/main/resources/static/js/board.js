@@ -103,6 +103,21 @@ let index = {
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});
+	},
+	
+	replyDelete: function(boardId, replyId) {
+		$.ajax({
+			type: "DELETE",
+			url: `/api/board/${boardId}/reply/${replyId}`,
+			contentType: "application/json; charset=utf-8",
+			dataType: "json"
+
+		}).done(function(resp) {
+			alert("댓글이 삭제되었습니다.");
+			location.href = `/board/${boardId}`;
+		}).fail(function(error) {
+			alert(JSON.stringify(error));
+		});
 	}
 
 }
